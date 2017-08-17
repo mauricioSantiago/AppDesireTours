@@ -1,0 +1,57 @@
+<ion-view title="Comprar viaje">
+	<ion-content padding="true">
+		<div class="card">
+			<div class="item item-divider" align="center">
+				<h2 id="tituloViaje">{{viajeElegido.nombre}}</h2>
+			</div>
+			<div class="item item-text-wrap">
+				<p id="formatoViaje">
+					<datoNormal>El viaje comienza el día</datoNormal> <datoInformativo>{{viajeElegido.fechaInicio | date : 'dd/MM/yyyy'}}</datoInformativo>
+					<br><br>
+					<datoNormal>El viaje termina el día</datoNormal> <datoInformativo>{{viajeElegido.fechaInicio | date : 'dd/MM/yyyy'}}</datoInformativo>
+					<br><br>
+					<datoNormal>El costo de reserva es de </datoNormal> <datoInformativo>{{viajeElegido.costoRsva | currency}}</datoInformativo>
+					<br><br>
+					<datoNormal>El costo total del viaje es de </datoNormal> <datoInformativo>{{viajeElegido.costoTotal | currency}}</datoInformativo>
+				</p>
+			</div>
+			<div class="item item-divider" align="right">
+				<p id="pieViaje">Quedan {{(viajeElegido.numLugares-boletosComprados)}} lugares</p>
+			</div>
+		</div>
+		<br>
+		<form name="formulario" novalidate="novalidate" ng-submit="viajeCompra_Reserva(true)">
+			<div class="row" >
+				<div class="col col-80 col-offset-10" align="center">
+				  	Número de lugares:
+				  	<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="number" 
+								ng-model="viajesComprados.numLugares"
+								min="1"
+								max="{{(viajeElegido.numLugares-boletosComprados)}}"  
+								name="numLugaresViaje" 
+								required="required">
+				  			</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col col-80 col-offset-10" align="center">
+				  	<button class="button button-positive" type="submit">
+				  		<i class="ion-social-usd"></i>&nbsp;&nbsp;&nbsp;Comprar
+				  	</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- </div>
+				<div class="col col-20"></div>
+				<div class="col" > -->
+				  	<button class="button button-positive" type="submit">
+				  		<i class="ion-locked"></i>&nbsp;&nbsp;&nbsp;Reservar
+				  	</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

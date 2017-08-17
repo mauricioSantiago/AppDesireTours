@@ -1,0 +1,34 @@
+<ion-view title="Listado de clientes">
+	<ion-content padding="true">
+		<br>
+		<div align="right">
+			<button class="button button-balanced" ng-click="PagEditarUsuario('nuevo')">
+				<i class="ion-android-person-add"></i>
+				Nuevo usuario
+			</button>
+		</div>
+		<br>
+		<table class="table table-striped">
+			<tr>
+				<th>NOMBRE COMPLETO</th>
+				<th>FECHA DE NACIMIENTO</th>
+				<th> </th>
+				<th> </th>
+			</tr>
+			<tr ng-repeat="usuarios in listaUsuarios">
+				<td>{{usuarios.nombre}} {{usuarios.apellidos}}</td>
+				<td>{{usuarios.fechaNacimiento | date : 'dd/MM/yyyy'}}</td>
+				<td>
+					<button class="btn btn-info btn-sm" type="button" ng-click="PagEditarUsuario({{usuarios.idUsuario}})">
+						<i class="icon ion-edit"></i>
+					</button>
+				</td>
+				<td>
+					<button class="btn btn-danger btn-sm" type="button" ng-click="eliminarUsuario({{usuarios}})">
+						<i class="ion-backspace-outline"></i>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</ion-content>
+</ion-view>

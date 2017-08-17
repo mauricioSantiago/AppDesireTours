@@ -1,0 +1,20 @@
+<ion-view title="Detalle de {{nombreViajeRecuperado}}">
+	<ion-content padding="true">
+		<br>
+		<div ng-show="estatusCompraRecuperado">
+		<table class="table table-striped">
+			<tr>
+				<th>NOMBRE</th>
+				<th>LUGARES COMPRADOS</th>
+			</tr>
+			<tr ng-repeat="dato in ListaViajesComprados">
+				<td>{{dato.nombre}} {{dato.apellidos}}</td>
+				<td>{{dato.boletosComprados}}</td>
+			</tr>
+		</table>
+		</div>
+		<!-- <div ng-hide="existeResultados" align="center">
+			<h3>No se han comprado botelos de "{{nombreViajeRecuperado}}"</h3>
+		</div> -->
+	</ion-content>
+</ion-view>

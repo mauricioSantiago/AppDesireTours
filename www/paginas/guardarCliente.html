@@ -1,0 +1,147 @@
+<ion-view title="{{tituloUsuario}}">
+	<ion-content >
+		<br>
+		<form ng-submit="guardarDatos()" name="formulario" novalidate="novalidate">
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Nombre:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" 
+								ng-model="infoUsuario.nombre" 
+								name="nombreUsuario" 
+								required="required">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Apellidos:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" 
+								ng-model="infoUsuario.apellidos" 
+								name="apellidosUsuario" 
+								required="required">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Fecha de nacimiento:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+				    			<input type="date" 
+				    			max="{{DiaActual | date:'yyyy-MM-dd' }}"
+				    			ng-model="infoUsuario.fechaNacimiento" 
+				    			name="fechaNacimientoViaje" 
+				    			required="required">
+				  			</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Dirección:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" 
+								ng-model="infoUsuario.direccion" 
+								name="direccionUsuario" 
+								required="required">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	Numero de telefono:
+				  	<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" 
+								ng-model="infoUsuario.telefono" 
+								name="telefonoUsuario" 
+								required="required"
+								ui-mask="(999) 999-9999"  
+								ui-mask-placeholder 
+								ui-mask-placeholder-char="0">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-50 col-offset-10">
+				  	Genero:
+				  	<div class="form-group">
+					  	<ion-radio ng-model="tipoGenero" ng-value="'M'" >Masculino</ion-radio>
+					  	<ion-radio ng-model="tipoGenero" ng-value="'F'" >Femenino</ion-radio>
+					</div>
+				</div>
+				<!-- <div class="col col-30" align="center">
+				  	<br>
+				  	¿Es cliente?
+				  	<div>
+				  	<label class="toggle toggle-positive" >
+					   <input type="checkbox" ng-model="infoUsuario.esCliente">
+					   <div class="track" > 
+					    	<div class="handle"></div>
+					   </div>
+					</label>
+					</div>
+				</div> -->
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	Correo electronico:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="email" 
+								name="email" 
+								required="required" 
+								ng-model="infoUsuario.usuario">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	Contraseña:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" 
+								name="contra" 
+								required="required" 
+								minlength="6"
+								ng-model="infoUsuario.contrasenia">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col col-80 col-offset-10" align="right">
+				  	<button class="button button-positive" type="submit">
+				  		<i class="ion-checkmark-circled"></i>
+				  		Guardar
+				  	</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

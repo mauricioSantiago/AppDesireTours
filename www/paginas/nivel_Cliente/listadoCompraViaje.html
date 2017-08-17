@@ -1,0 +1,29 @@
+<ion-view title="Lista de viajes">
+	<ion-content padding="true">
+		<br>
+		<table class="table table-striped">
+			<tr>
+				<th>
+					<a ng-click="columna='nombre'; reverse = !reverse;" class="puntero">
+						NOMBRE
+					</a>
+				</th>
+				<th>
+					<a ng-click="columna='fechaInicio'; reverse = !reverse;" class="puntero">
+						FECHAS
+					</a>
+				</th>
+				<th>
+					<a ng-click="columna='costoTotal'; reverse = !reverse;" class="puntero">
+						COSTO
+					</a>
+				</th>
+			</tr>
+			<tr ng-repeat="compraViaje in listaCompraViajes | orderBy:columna:reverse">
+				<td><a href="#/compraViaje/{{idUsuario}}/{{compraViaje.idViaje}}">{{compraViaje.nombre}}</a></td>
+				<td>Del {{compraViaje.fechaInicio | date : 'dd/MM/yyyy'}} al {{compraViaje.fechaFin | date : 'dd/MM/yyyy'}}</td>
+				<td>{{compraViaje.costoTotal | currency}}</td>
+			</tr>
+		</table>
+	</ion-content>
+</ion-view>

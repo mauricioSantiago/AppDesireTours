@@ -1,0 +1,35 @@
+<ion-view title="Lista de viajes">
+	<ion-content padding="true">
+		<br>
+		<div align="right">
+			<button class="button button-balanced" ng-click="PagEditarViaje('nuevo')">
+				<i class="ion-android-add-circle"></i>
+				Agregar
+			</button>
+		</div>
+		<br>
+		<table class="table table-striped">
+			<tr>
+				<th>NOMBRE</th>
+				<th>FECHAS DISPONIBLES</th>
+				<th> </th>
+				<th> </th>
+			</tr>
+			<tr ng-repeat="viaje in listaViajes">
+				<td><a href="#/detalleViaje/{{idUsuario}}/{{viaje.nombre}}/{{viaje.idViaje}}/{{viaje.Comprado}}">{{viaje.nombre}}</a></td>
+				<td>Del {{viaje.fechaInicio | date : 'dd/MM/yyyy'}} al {{viaje.fechaFin | date : 'dd/MM/yyyy'}}</td>
+				<td>
+					<button class="btn btn-info btn-sm" type="button" ng-click="PagEditarViaje({{viaje.idViaje}})">
+						<i class="icon ion-edit"></i>
+					</button>
+				</td>
+				<td>
+					<button class="btn btn-danger btn-sm" type="button" ng-click="eliminarViaje({{viaje}})">
+						<i class="icon ion-trash-a"></i>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="desireToursApp" ng-controller="mainCtrl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>DesireToursApp</title>
+
+    <!-- Incluir estilos -->
+    <style>
+      .puntero{
+        cursor: pointer;
+      }
+
+      #formatoViaje datoInformativo{
+        color: blue;
+        font-weight: bold;
+        font-size: 17px;
+      }
+
+      #formatoViaje datoNormal{
+        font-size: 17px;
+      }
+
+      #tituloViaje{
+        font-weight: bold;
+        color: blue;
+        font-size: 20px;
+      }
+
+      #pieViaje{
+        font-weight: bold;
+        color: red;
+        font-size: 17px;
+      }
+
+      #mensajeBoletos{
+        font-weight: bold;
+        color: red;
+        font-size: 17px;
+      }
+    </style>
+  
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ionic/css/ionicons.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Incluir librerias -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/mask.min.js"></script>
+    <script src="lib/jcs-auto-validate.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- Incluir librerias para la conexion a base de datos-->
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    
+    <!-- Incluir controladores -->
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/loginCtrl.js"></script>
+    <script src="js/guardarClienteCtrl.js"></script>
+    <script src="js/nivel_Admin/listadoClientesCtrl.js"></script>
+    <script src="js/nivel_Admin/listadoViajesCtrl.js"></script>
+    <script src="js/nivel_Admin/editarInfoViajeCtrl.js"></script>
+    <script src="js/nivel_Admin/detalleViajeCtrl.js"></script>
+    <script src="js/nivel_Cliente/listadoCompraViajeCtrl.js"></script>
+    <script src="js/nivel_Cliente/compraViajeCtrl.js"></script>
+  </head>
+  <body>
+    <div ng-include="paginaLogin" ></div>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

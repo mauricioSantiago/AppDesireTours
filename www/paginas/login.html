@@ -1,0 +1,43 @@
+<ion-view title="{{tituloLogin}}">
+	<ion-content padding="true">
+		<form novalidate="novalidate" name="formulario">
+			<div class="list" ng-hide="mostrarFormLogin">
+				<div class="form-group">
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Correo electronico:</span>
+						<div style="font-size:12px;">
+							<input type="email" id="email" name="email" required="required" placeholder="Correo electronico" ng-model="validarUsu.usuario">
+						</div>
+					</label>
+				</div>
+				<br>
+				<div class="form-group">
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Contraseña:</span>
+						<div style="font-size:12px;">
+							<input type="password" 
+							id="contra" 
+							name="contra"
+							required="required" 
+							placeholder="Contraseña" 
+							ng-model="validarUsu.pass">
+						</div>
+					</label>
+				</div>
+				<br>
+				<br>
+				<div align="center">
+					<button class="button button-positive" ng-click="login()">Iniciar</button>
+				</div>
+			</div>
+		</form>
+		<div ng-show="mostrarFormLogin" align="center">
+			<h1 >{{bienvenida}}</h1>
+			<br>
+			<h3 >{{NombreUsuario}}</h3>
+			<br><br>
+			<button class="button button-assertive" ng-click="logout()">Cerrar</button>
+		</div>
+		
+	</ion-content>
+</ion-view>

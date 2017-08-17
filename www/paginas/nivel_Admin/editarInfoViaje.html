@@ -1,0 +1,123 @@
+<ion-view title="{{tituloViaje}}">
+	<ion-content >
+		<br>
+		<form ng-submit="guardarDatos()" name="formulario" novalidate="novalidate">
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Nombre del viaje:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="text" ng-model="listaViajes.nombre" name="nombreViaje" required="required">
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Fecha de inicio:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+				    			<input type="date" 
+				    			ng-model="listaViajes.fechaInicio"
+				    			max="{{listaViajes.fechaFin | date:'yyyy-MM-dd' }}" 
+				    			name="fechaInicioViaje" 
+				    			required="required">
+				  			</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Fecha de termino:
+					<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+				    			<input type="date" 
+				    			ng-model="listaViajes.fechaFin" 
+				    			min="{{listaViajes.fechaInicio | date:'yyyy-MM-dd' }}"
+				    			name="fechaFinViaje" 
+				    			required="required">
+				  			</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+					Costo de la reservación:
+					<div class="input-group form-group">
+						<span class="input-group-addon">$</span>
+						<label class="item item-input">
+							<div style="font-size:12px;">
+								<input type="number" 
+								min="0.01" 
+								step="0.01" 
+								max="999999" 
+								ng-model="listaViajes.costoRsva" 
+								placeholder="0.00" 
+								name="costoRsvaViaje" 
+								required="required"/>
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	Costo total:
+				  	<div class="input-group form-group">
+						<span class="input-group-addon">$</span>
+						<label class="item item-input">
+							<div style="font-size:12px;">
+								<input type="number" 
+								min="0.01" step="0.01" 
+								max="999999" 
+								ng-model="listaViajes.costoTotal" 
+								placeholder="0.00" 
+								name="costoRsvaTotalViaje" 
+								required="required"/>
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	Número de lugares:
+				  	<div class="form-group">
+						<label class="item item-input" >
+							<div style="font-size:12px;">
+								<input type="number" 
+								ng-model="listaViajes.numLugares" 
+								name="numLugaresViaje" 
+								required="required">
+				  			</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-80 col-offset-10">
+				  	<div class="card">
+						<div class="item item-text-wrap">
+							*Este viaje ya tiene 3 boletos comprados.
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col col-80 col-offset-10" align="right">
+				  	<button class="button button-positive" type="submit">
+				  		<i class="ion-checkmark-circled"></i>
+				  		Guardar
+				  	</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>
