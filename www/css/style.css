@@ -1,1 +1,43 @@
-/* Empty. Add your own CSS if you like */
+<style>
+      .puntero{
+        cursor: pointer;
+      }
+
+      #formatoViaje datoInformativo{
+        color: blue;
+        font-weight: bold;
+        font-size: 17px;
+      }
+
+      #formatoViaje datoNormal{
+        font-size: 17px;
+      }
+
+      #tituloViaje{
+        font-weight: bold;
+        color: blue;
+        font-size: 20px;
+      }
+
+      #pieViaje{
+        font-weight: bold;
+        color: red;
+        font-size: 17px;
+      }
+
+      #mensajeBoletos{
+        font-weight: bold;
+        color: red;
+        font-size: 17px;
+      }
+
+      #colorBoletoDisponible{
+        color: #33CD5F;
+        font-size: 22px;
+      }
+
+      #colorBoletoAgotado{
+        color: #EF473A;
+        font-size: 22px;
+      }
+    </style>

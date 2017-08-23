@@ -1,7 +1,7 @@
 app.controller('detalleViajeCtrl', ['$scope', '$firebase', '$stateParams', function($scope, $firebase, $stateParams){
 
     //Funciones de entrada
-    console.log("entro al controlador detalle del viaje");
+    console.log("XXXXX Entro al controlador detalle del viaje");
     $scope.recuperarUsuario();
     $scope.obtenerlinkAtras("#/listadoViajes/");
     $scope.vistaBtnMenu(false);
@@ -29,7 +29,8 @@ app.controller('detalleViajeCtrl', ['$scope', '$firebase', '$stateParams', funct
                 $scope.ListaViajesComprados[dataRel.val().idViajeComprado]={
                     "nombre": dataPersonas.val().nombre,
                     "apellidos": dataPersonas.val().apellidos,
-                    "boletosComprados": dataRel.val().boletosComprados
+                    "boletosComprados": dataRel.val().boletosComprados,
+                    "boletosReservados": dataRel.val().boletosReservados
                 };
             });
         }

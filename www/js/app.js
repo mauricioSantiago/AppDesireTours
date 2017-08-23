@@ -58,12 +58,10 @@ app.controller('mainCtrl', ['$scope','$stateParams','$ionicPopup', function($sco
 
     //activa la funcion del boton para regresar a la pagina anterior
     $scope.accionAtras= function(link){ 
-        setTimeout(function(){
-            window.location=link+$scope.idUsuario;
-            $scope.vistaBtnAtras(false);
-            $scope.vistaBtnMenu(true);
-            $scope.$apply();
-        }, 1000);
+        window.location=link+$scope.idUsuario;
+        $scope.vistaBtnAtras(false);
+        $scope.vistaBtnMenu(true);
+        location.reload();
     }
 
     //Obtiene el link anterior

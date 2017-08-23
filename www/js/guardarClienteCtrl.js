@@ -1,12 +1,11 @@
 app.controller('guardarClienteCtrl', ['$scope', '$firebase','$stateParams','$filter', function($scope, $firebase,$stateParams,$filter){
 	
-    console.log("entro al controlador de guardar clientes");
+    console.log("##### Entro al controlador de guardar clientes");
     //Funciones de entrada
     $scope.recuperarUsuario();
     if(JSON.parse($stateParams.esCliente))
     {
         $scope.vistaBtnMenu(true);
-        console.log("##### entro a la Validacion");
     }
     else
     {
@@ -38,7 +37,7 @@ app.controller('guardarClienteCtrl', ['$scope', '$firebase','$stateParams','$fil
                 if(!JSON.parse($stateParams.esCliente))
                 {
                     firebase.auth().signInWithEmailAndPassword(data.val().usuario, String(data.val().contrasenia)).then(function(snap) {
-                        console.log("##### SE LOGEO EL USUARIO A EDITAR");
+                        // console.log("##### SE LOGEO EL USUARIO A EDITAR");
                     });
                 }
                 setTimeout(function(){
@@ -83,7 +82,7 @@ app.controller('guardarClienteCtrl', ['$scope', '$firebase','$stateParams','$fil
             }).then(function(data) {
                 $scope.showAlert("Información","Los datos se guardaron correctamente.",true);
             }).catch(function(error) {
-                $scope.showAlert("Error","Los datos no se guardaron correctamente.",true);
+                $scope.showAlert("Error","Los datos no se guardaron correctamente.", false);
                 console.log("XXXXX Error !!! "+ error);
             });
             
@@ -104,44 +103,45 @@ app.controller('guardarClienteCtrl', ['$scope', '$firebase','$stateParams','$fil
             }).then(function(data) {
                 $scope.showAlert("Información","Los datos se actualizaron correctamente.",$scope.MenuAdmin);
             }).catch(function(error) {
-                $scope.showAlert("Error","Los datos no se actualizaron correctamente.",$scope.MenuAdmin);
+                $scope.showAlert("Error","Los datos no se actualizaron correctamente.", false);
                 console.log("XXXXX Error !!! "+ error);
             });
 
+            
 
             if($scope.usuarioOriginal!=$scope.infoUsuario.usuario && $scope.contraseniaOriginal != $scope.infoUsuario.contrasenia)
             {
                 var usuarioActivo = firebase.auth().currentUser;
                 usuarioActivo.updateEmail($scope.infoUsuario.usuario).then(function() {
-                    console.log("##### SE ACTUALIZO EL USUARIO");
+                    // console.log("##### SE ACTUALIZO EL USUARIO");
                     usuarioActivo.updatePassword($scope.infoUsuario.contrasenia).then(function() {
-                        console.log("##### SE ACTUALIZO LA CONTRASEÑA");
+                        // console.log("##### SE ACTUALIZO LA CONTRASEÑA");
                         $scope.recuperarUsuario(true);
                     }, function(error) {
-                        console.log("XXXXX NO SE ACTUALIZO LA CONTRASEÑA---"+error);
+                        console.log("XXXXX NO SE ACTUALIZO LA CONTRASEÑA EN LA AUTENTICACION DE FIREBASE---"+error);
                     });
                 }, function(error) {
-                    console.log("XXXXX NO SE ACTUALIZO EL USUARIO---"+error);
+                    console.log("XXXXX NO SE ACTUALIZO EL USUARIO EN LA AUTENTICACION DE FIREBASE---"+error);
                 });
             }
             else if ($scope.usuarioOriginal!=$scope.infoUsuario.usuario)
             {
                 var usuarioActivo = firebase.auth().currentUser;
                 usuarioActivo.updateEmail($scope.infoUsuario.usuario).then(function() {
-                    console.log("##### SE ACTUALIZO EL USUARIO");
+                    // console.log("##### SE ACTUALIZO EL USUARIO");
                     $scope.recuperarUsuario(true);
                 }, function(error) {
-                    console.log("XXXXX NO SE ACTUALIZO EL USUARIO---"+error);
+                    console.log("XXXXX NO SE ACTUALIZO EL USUARIO EN LA AUTENTICACION DE FIREBASE---"+error);
                 });
             }
             else if($scope.contraseniaOriginal != $scope.infoUsuario.contrasenia)
             {
                 var usuarioActivo = firebase.auth().currentUser;
                 usuarioActivo.updatePassword($scope.infoUsuario.contrasenia).then(function() {
-                    console.log("##### SE ACTUALIZO LA CONTRASEÑA");
+                    // console.log("##### SE ACTUALIZO LA CONTRASEÑA");
                     $scope.recuperarUsuario(true);
                 }, function(error) {
-                    console.log("XXXXX NO SE ACTUALIZO LA CONTRASEÑA---"+error);
+                    console.log("XXXXX NO SE ACTUALIZO LA CONTRASEÑA EN LA AUTENTICACION DE FIREBASE---"+error);
                 });
             }
         }

@@ -37,7 +37,7 @@ app.config(function($stateProvider){
                 }
             })
         .state('editarInfoViaje', {
-                url: '/editarInfoViaje/:idUsuario/:idViaje',
+                url: '/editarInfoViaje/:idUsuario/:idViaje/:estatusCompra',
                 views: {
                     'menuContent': {
                         templateUrl: 'paginas/nivel_Admin/editarInfoViaje.html',
@@ -64,7 +64,7 @@ app.config(function($stateProvider){
                 }
             })
         .state('compraViaje', {
-                url: '/compraViaje/:idUsuario/:idViaje',
+                url: '/compraViaje/:idUsuario/:idViaje/:Disponibilidad',
                 views: {
                     'menuContent': {
                         templateUrl: 'paginas/nivel_Cliente/compraViaje.html',

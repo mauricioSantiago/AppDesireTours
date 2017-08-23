@@ -94,17 +94,18 @@
 								<input type="number" 
 								ng-model="listaViajes.numLugares" 
 								name="numLugaresViaje" 
+								min="{{totalBoletosComprados}}"
 								required="required">
 				  			</div>
 						</label>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" ng-show="estatusViajeComprado">
 				<div class="col col-80 col-offset-10">
 				  	<div class="card">
 						<div class="item item-text-wrap">
-							*Este viaje ya tiene 3 boletos comprados.
+							*Este viaje ya tiene {{totalBoletosComprados}} boletos comprados.
 						</div>
 					</div>
 				</div>

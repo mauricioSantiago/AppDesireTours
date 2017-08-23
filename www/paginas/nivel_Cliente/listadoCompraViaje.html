@@ -1,8 +1,16 @@
 <ion-view title="Lista de viajes">
 	<ion-content padding="true">
 		<br>
+		<div class="row" >
+			<div class="col col-90 col-offset-10" align="right">
+		  		Disponible <i class="ion-android-checkbox" id="colorBoletoDisponible"></i>
+		  		&nbsp;&nbsp;&nbsp;&nbsp;
+		  		Agotado <i class="ion-android-cancel" id="colorBoletoAgotado"></i>
+			</div>
+		</div>
 		<table class="table table-striped">
 			<tr>
+				<th></th>
 				<th>
 					<a ng-click="columna='nombre'; reverse = !reverse;" class="puntero">
 						NOMBRE
@@ -20,7 +28,11 @@
 				</th>
 			</tr>
 			<tr ng-repeat="compraViaje in listaCompraViajes | orderBy:columna:reverse">
-				<td><a href="#/compraViaje/{{idUsuario}}/{{compraViaje.idViaje}}">{{compraViaje.nombre}}</a></td>
+				<td>
+					<i class="ion-android-checkbox" ng-show="{{compraViaje.LugaresDisponibles}}" id="colorBoletoDisponible"></i>
+					<i class="ion-android-cancel" ng-hide="{{compraViaje.LugaresDisponibles}}" id="colorBoletoAgotado"></i>
+				</td>
+				<td><a href="#/compraViaje/{{idUsuario}}/{{compraViaje.idViaje}}/{{compraViaje.LugaresDisponibles}}">{{compraViaje.nombre}}</a></td>
 				<td>Del {{compraViaje.fechaInicio | date : 'dd/MM/yyyy'}} al {{compraViaje.fechaFin | date : 'dd/MM/yyyy'}}</td>
 				<td>{{compraViaje.costoTotal | currency}}</td>
 			</tr>

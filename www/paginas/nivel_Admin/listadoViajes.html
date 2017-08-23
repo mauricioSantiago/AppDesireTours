@@ -19,7 +19,7 @@
 				<td><a href="#/detalleViaje/{{idUsuario}}/{{viaje.nombre}}/{{viaje.idViaje}}/{{viaje.Comprado}}">{{viaje.nombre}}</a></td>
 				<td>Del {{viaje.fechaInicio | date : 'dd/MM/yyyy'}} al {{viaje.fechaFin | date : 'dd/MM/yyyy'}}</td>
 				<td>
-					<button class="btn btn-info btn-sm" type="button" ng-click="PagEditarViaje({{viaje.idViaje}})">
+					<button class="btn btn-info btn-sm" type="button" ng-click="PagEditarViaje({{viaje}})">
 						<i class="icon ion-edit"></i>
 					</button>
 				</td>

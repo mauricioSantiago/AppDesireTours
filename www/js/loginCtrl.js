@@ -1,6 +1,7 @@
 app.controller('loginCtrl', ['$scope', '$firebase', '$stateParams', function($scope, $firebase, $stateParams){
 	
-    console.log("entro al controlador del login");
+    console.log("##### Entro al controlador del login");
+    //Funciones de entrada
     $scope.recuperarUsuario();
     $scope.validarUsu = {};
     $scope.mostrarValoresIncorrectos=false;
@@ -21,11 +22,11 @@ app.controller('loginCtrl', ['$scope', '$firebase', '$stateParams', function($sc
             $scope.vistaBtnMenu(true);
             
             usuariosData.orderByChild("usuario").startAt($scope.validarUsu.usuario).endAt($scope.validarUsu.usuario).on("child_added", function(data) {
-                console.log("se obtienen los datos");
+                // console.log("se obtienen los datos");
                 if(data.val().contrasenia==$scope.validarUsu.pass)
                 {
                     setTimeout(function(){
-                        console.log("El usuario es correcto.");
+                        // console.log("El usuario es correcto.");
                         $scope.InicioSesion(data.val().nombre, data.val().genero, data.val().idUsuario, data.val().esCliente);
                         $scope.$apply();
                     }, 1000);
@@ -37,14 +38,10 @@ app.controller('loginCtrl', ['$scope', '$firebase', '$stateParams', function($sc
         });
     }
 
-    $scope.VerificarUsuario = function(){
-        
-    }
-
     //Funcion para cerrar la sesion
     $scope.logout=function(){
         firebase.auth().signOut().then(function() {
-            console.error('Se cerro sesion correctamente.');
+            //console.error('Se cerro sesion correctamente.');
             $scope.validarUsu = {};
             $scope.CerrarSesion();
         }, function(error) {

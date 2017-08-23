@@ -6,15 +6,14 @@
 			<tr>
 				<th>NOMBRE</th>
 				<th>LUGARES COMPRADOS</th>
+				<th>LUGARES RESERVADOS</th>
 			</tr>
 			<tr ng-repeat="dato in ListaViajesComprados">
 				<td>{{dato.nombre}} {{dato.apellidos}}</td>
 				<td>{{dato.boletosComprados}}</td>
+				<td>{{dato.boletosReservados}}</td>
 			</tr>
 		</table>
 		</div>
-		<!-- <div ng-hide="existeResultados" align="center">
-			<h3>No se han comprado botelos de "{{nombreViajeRecuperado}}"</h3>
-		</div> -->
 	</ion-content>
 </ion-view>

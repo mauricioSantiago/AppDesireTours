@@ -1,7 +1,7 @@
 app.controller('listadoViajesCtrl', ['$scope', '$firebase', '$ionicPopup', function($scope, $firebase, $ionicPopup){
 
     //Funciones de entrada
-    console.log("entro al controlador del listado viajes");
+    console.log("##### Entro al controlador del listado viajes");
     $scope.recuperarUsuario();
     $scope.vistaBtnMenu(true);
 
@@ -11,7 +11,7 @@ app.controller('listadoViajesCtrl', ['$scope', '$firebase', '$ionicPopup', funct
     var listaViajesRef = firebase.database().ref("Viajes");
     var ViajesCompradosRef = firebase.database().ref("ViajesComprados");
 
-    //Consulta los viajes existentes en la base de datos
+    //Consulta los viajes existentes en la base de datos.
     listaViajesRef.on("value", function(snapshot) {
         var data =snapshot.toJSON();
         $scope.listaViajes=data;
@@ -31,23 +31,16 @@ app.controller('listadoViajesCtrl', ['$scope', '$firebase', '$ionicPopup', funct
                 }
             }
         });
-
-        
-        // console.log($scope.listaViajes);
-        // $scope.agregado={"nombre":"nope"};
-        // $scope.listaViajes["8"]=$scope.agregado;
-        // console.log($scope.listaViajes);
-
     }, function (error) {
-        console.log("Error: " + error.code);
+        console.log("XXXXX Error: " + error.code);
     });
 
-    //Funcion para viajar a la pagina en donde se editara el viaje seleccionado
-    $scope.PagEditarViaje= function(idViaje){
-        window.location="#/editarInfoViaje/"+$scope.idUsuario+"/"+idViaje;
+    //Funcion para viajar a la pagina en donde se editara el viaje seleccionado.
+    $scope.PagEditarViaje= function(viajeElegido){
+        window.location="#/editarInfoViaje/"+$scope.idUsuario+"/"+viajeElegido.idViaje+"/"+viajeElegido.Comprado;
     }
 
-    //Funcion para eliminar un viaje
+    //Funcion para eliminar un viaje.
     $scope.eliminarViaje = function(viajeElegido)
     {
         var tituloPopup="";
@@ -89,7 +82,7 @@ app.controller('listadoViajesCtrl', ['$scope', '$firebase', '$ionicPopup', funct
                     $scope.showAlert("Información","Se borro el viaje seleccionado.",false);
                 }).catch(function(error) {
                     $scope.showAlert("Error","No se pudo borrar el viaje seleccionado.",false);
-                    console.log("error !!! "+ error);
+                    console.log("XXXXX Error !!! "+ error);
                 });
 
             } 
